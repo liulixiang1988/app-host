@@ -1,0 +1,19 @@
+{
+  "name": "app_host",
+  "version": "0.0.1",
+  "homepage": "https://github.com/liulixiang1988/app-host",
+  "authors": [
+    "Liu Lixiang <liulixiang1988@gmail.com>"
+  ],
+  "description": "app host",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "static/static",
+    "test",
+    "tests"
+  ],
+  "dependencies": {}
+}

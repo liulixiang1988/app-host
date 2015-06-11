@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/1.8/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.8/ref/settings/
 """
-
+DEBUG=True
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
@@ -103,3 +103,7 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static', 'static_only')
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static', 'static'),
+)
