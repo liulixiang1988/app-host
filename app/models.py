@@ -23,7 +23,7 @@ class AppInfo(models.Model):
     """
     app_name = models.CharField(u'应用名称', max_length=200)
     app_version = models.CharField(u'版本号', max_length=200)
-    platform = models.ForeignKey(Platform)
+    platform = models.ForeignKey(Platform, verbose_name=u'平台')
     app_package = models.FileField(u'应用包', upload_to='app/%Y/%m/%d')
 
     class Meta:

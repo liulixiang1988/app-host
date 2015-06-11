@@ -1,3 +1,15 @@
 {% extends 'app/base.html' %}
 
 {% block title %}首页{% endblock %}
+
+{% block container %}
+<div class="container">
+    <div class="list-group">
+    {% if apps %}
+        {% for app in apps %}
+        <a href="{{app.app_package.url}}" class="list-group-item">{{app.app_name}} {{app.app_version}} {{app.platform.name}}</a>
+        {% endfor %}
+    {% endif %}
+    </div>
+</div>    
+{% endblock %}

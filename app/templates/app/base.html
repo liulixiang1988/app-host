@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+{% block stylesheet %}
     <link rel="stylesheet" href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}"/>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -13,6 +14,13 @@
       <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <!--[if IE]>
+     <link href="{% static 'app/stylesheets/ie.css' %}" media="screen, projection" rel="stylesheet" type="text/css" />
+    <![endif]-->
+    <link href="{% static 'app/stylesheets/print.css' %}" media="print" rel="stylesheet" type="text/css" />
+    <link href="{% static 'app/stylesheets/screen.css' %}" media="screen, projection" rel="stylesheet" type="text/css" />
+
+{% endblock %}
 </head>
 <body>
 {% block navbar %}
@@ -38,20 +46,9 @@
     </nav>
 {% endblock %}
 {% block jumbotron %}
-    <div class="jumbotron">
-        <div class="container">
-            <h2>文件助手</h2>
-
-            <p>文件助手</p>
-
-            <p><a class="btn btn-primary btn-lg" href="#" role="button">下载</a></p>
-        </div>
-    </div>
 {% endblock %}
-{% block container %}
-    <div class="container">
 
-    </div>
+{% block container %}
 {% endblock %}
 
 {% block script %}
