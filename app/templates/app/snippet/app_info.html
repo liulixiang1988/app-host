@@ -1,7 +1,11 @@
 <div class="excerpt">
    <div class="focus" id="{{ app.app_name }}{{ app.app_version }}{{ app.platform.name }}"></div><!--end qr-->
    <header>
-       <h2><a href="{{ app.app_package.url }}">{{ app.app_name }}</a></h2>
+       {% if app.platform.name == 'iOS' %}
+           <h2><a href="{{ app.app_package.url }}">{{ app.app_name }}</a></h2>
+       {% elif app.platform.name == 'Android' %}
+           <h2><a href="{{ app.app_package.url }}">{{ app.app_name }}</a></h2>
+       {% endif %}
    </header>
    <p class="note"><span class="label label-danger">平台：{{ app.platform.name }}</span>
        <span class="label label-primary">版本：{{ app.app_version }}</span></p>
