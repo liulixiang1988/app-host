@@ -63,3 +63,4 @@ target/
 media/
 .idea/
 .sass-cache/
+db.sqlite3
