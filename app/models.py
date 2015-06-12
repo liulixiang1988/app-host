@@ -22,9 +22,9 @@ class AppInfo(models.Model):
     Description: 应用信息
     """
     app_name = models.CharField(u'应用名称', max_length=200)
-    app_version = models.CharField(u'版本号', max_length=200)
-    platform = models.ForeignKey(Platform, verbose_name=u'平台')
-    app_package = models.FileField(u'应用包', upload_to='app/%Y/%m/%d')
+    app_description = models.TextField(
+        u'应用描述', blank=True, default='', null=True)
+    app_icon = models.ImageField(u'应用图标', upload_to='app/%Y/%m/%d', null=True)
 
     class Meta:
         verbose_name = u'应用信息'
@@ -32,3 +32,23 @@ class AppInfo(models.Model):
 
     def __str__(self):
         return self.app_name
+
+
+class AppPackage(models.Model):
+
+    """
+    Description: 应用安装包
+    """
+    appinfo = models.ForeignKey(AppInfo, verbose_name=u'应用')
+    platform = models.ForeignKey(Platform, verbose_name=u'平台')
+    package = models.FileField(u'应用包', upload_to='app/%Y/%m/%d')
+    version = models.CharField(u'版本号', max_length=200)
+    plist = models.FileField(
+        u'Plist文件', upload_to='app/%Y/%m/%d', blank=True, null=True)
+
+    class Meta:
+        verbose_name = u'应用安装包'
+        verbose_name_plural = u'应用安装包'
+
+    def __str__(self):
+        return self.appinfo.app_name + " " + self.platform.name
