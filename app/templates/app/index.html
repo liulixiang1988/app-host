@@ -3,13 +3,17 @@
 {% block title %}首页{% endblock %}
 
 {% block container %}
-<div class="container">
-    <div class="list-group">
-    {% if apps %}
+    <div class="container">
+    {% include 'app/snippet/app_list.html' %}
+    </div><!-- end container -->
+{% endblock %}
+
+{% block script %}
+    {{ block.super }}
+    <script>
+        var baseUrl = location.protocol + "//" + location.host;
         {% for app in apps %}
-        <a href="{{app.app_package.url}}" class="list-group-item">{{app.app_name}} {{app.app_version}} {{app.platform.name}}</a>
+            qr("{{app.app_name}}{{app.app_version}}{{app.platform.name}}", baseUrl + "{{app.app_package.url}}");
         {% endfor %}
-    {% endif %}
-    </div>
-</div>    
+    </script>
 {% endblock %}
