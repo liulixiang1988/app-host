@@ -1,5 +1,7 @@
 {% if apps %}
 {% for app in apps %}
-    {% include 'app/snippet/app_info.html' %}
+    {% for app_package in app.apppackage_set.all %}
+        {% include 'app/snippet/app_info.html' %}
+    {% endfor %}
 {% endfor %}
 {% endif %}

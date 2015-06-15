@@ -10,7 +10,7 @@
 					<key>kind</key>
 					<string>software-package</string>
 					<key>url</key>
-					<string><![CDATA[{{app_url}}]]></string>
+					<string><![CDATA[http://{{request.get_host}}{{app_package.package.url}}]]></string>
 				</dict>
 				<dict>
 					<key>kind</key>
@@ -18,7 +18,7 @@
 					<key>needs-shine</key>
 					<false/>
 					<key>url</key>
-					<string><![CDATA[{{app_img}}]]></string>
+					<string><![CDATA[http://{{request.get_host}}{{app_package.appinfo.app_icon.url}}]]></string>
 				</dict>
 				<dict>
 					<key>kind</key>
@@ -26,21 +26,21 @@
 					<key>needs-shine</key>
 					<false/>
 					<key>url</key>
-					<string><![CDATA[{{app_img}}]]></string>
+					<string><![CDATA[http://{{request.get_host}}{{app_package.appinfo.app_icon.url}}]]></string>
 				</dict>
 			</array>
 			<key>metadata</key>
 			<dict>
 				<key>bundle-identifier</key>
-				<string>{{app_id}}</string>
+				<string>{{app_package.identifier}}</string>
 				<key>bundle-version</key>
-				<string>{{app_version}}</string>
+				<string>{{app_package.version}}</string>
 				<key>kind</key>
 				<string>software</string>
 				<key>subtitle</key>
-				<string>{{app_name}}</string>
+				<string>{{app_package.appinfo.app_name}}</string>
 				<key>title</key>
-				<string>{{app_name}}</string>
+				<string>{{app_package.appinfo.app_name}}</string>
 			</dict>
 		</dict>
 	</array>

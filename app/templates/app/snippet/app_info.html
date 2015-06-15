@@ -1,12 +1,13 @@
 <div class="excerpt">
-   <div class="focus" id="{{ app.app_name }}{{ app.app_version }}{{ app.platform.name }}"></div><!--end qr-->
+   <div class="focus" id="{{ app.app_name }}{{ app_package.version }}{{ app_package.platform.name }}"></div><!--end qr-->
    <header>
-       {% if app.platform.name == 'iOS' %}
-           <h2><a href="{{ app.app_package.url }}">{{ app.app_name }}</a></h2>
-       {% elif app.platform.name == 'Android' %}
-           <h2><a href="{{ app.app_package.url }}">{{ app.app_name }}</a></h2>
+       {% if app_package.platform.name == 'iOS' %}
+           <h2><a href="itms-services://?action=download-manifest&url=http://172.16.216.55:8001/d/i/{{app_package.id}}"
+           onclick="todown('itms-services://?action=download-manifest&url=http://{{ request.get_host }}{% url 'app:plist_download' app_package.id  %}')">{{ app.app_name }}</a></h2>
+       {% elif app_package.platform.name == 'Android' %}
+           <h2><a href="{{ app_package.package.url }}">{{ app.app_name }}</a></h2>
        {% endif %}
    </header>
-   <p class="note"><span class="label label-danger">平台：{{ app.platform.name }}</span>
-       <span class="label label-primary">版本：{{ app.app_version }}</span></p>
+   <p class="note"><span class="label label-danger">平台：{{ app_package.platform.name }}</span>
+       <span class="label label-primary">版本：{{ app_package.version }}</span></p>
 </div>

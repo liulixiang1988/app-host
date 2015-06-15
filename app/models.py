@@ -39,6 +39,7 @@ class AppPackage(models.Model):
     """
     Description: 应用安装包
     """
+    identifier = models.CharField(u'应用ID', max_length=50, blank=True)
     appinfo = models.ForeignKey(AppInfo, verbose_name=u'应用')
     platform = models.ForeignKey(Platform, verbose_name=u'平台')
     package = models.FileField(u'应用包', upload_to='app/%Y/%m/%d')

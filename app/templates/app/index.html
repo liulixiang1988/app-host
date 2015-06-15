@@ -1,19 +1,25 @@
 {% extends 'app/base.html' %}
-
 {% block title %}首页{% endblock %}
 
 {% block container %}
     <div class="container">
-    {% include 'app/snippet/app_list.html' %}
-    </div><!-- end container -->
-{% endblock %}
+        {% include 'app/snippet/app_list.html' %}
+        </div><!-- end container -->
+{% endblock %}{# end container #}
 
 {% block script %}
     {{ block.super }}
     <script>
-        var baseUrl = location.protocol + "//" + location.host;
-        {% for app in apps %}
-            qr("{{app.app_name}}{{app.app_version}}{{app.platform.name}}", baseUrl + "{{app.app_package.url}}");
+    function todown(href)
+    {
+    location.href = href;
+    console.log("href:"+href);
+    }
+    var baseUrl = location.protocol + "//" + location.host;
+    {% for app in apps %}
+        {% for app_package in app.apppackage_set.all %}
+            qr("{{app.app_name}}{{app_package.version}}{{app_package.platform.name}}", baseUrl + "{{app_package.package.url}}");
         {% endfor %}
+    {% endfor %}
     </script>
-{% endblock %}
+{% endblock %}{# end script #}
