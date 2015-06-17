@@ -45,8 +45,6 @@ class AppPackage(models.Model):
     platform = models.ForeignKey(Platform, verbose_name=u'平台')
     package = models.FileField(u'应用包', upload_to='app/%Y/%m/%d')
     version = models.CharField(u'版本号', max_length=200)
-    plist = models.FileField(
-        u'Plist文件', upload_to='app/%Y/%m/%d', blank=True, null=True)
 
     class Meta:
         verbose_name = u'应用安装包'

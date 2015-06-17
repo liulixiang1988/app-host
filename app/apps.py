@@ -1,7 +1,8 @@
 # -*- coding:utf-8 -*-
-__author__ = 'liulixiang'
 
 from django.apps import AppConfig
+
+__author__ = 'liulixiang'
 
 
 class AppsConfig(AppConfig):

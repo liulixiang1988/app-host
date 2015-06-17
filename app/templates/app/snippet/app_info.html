@@ -2,7 +2,7 @@
    <div class="focus" id="{{ app.app_name }}{{ app_package.version }}{{ app_package.platform.name }}"></div><!--end qr-->
    <header>
        {% if app_package.platform.name == 'iOS' %}
-           <h2><a href="itms-services://?action=download-manifest&url=http://172.16.216.55:8001/d/i/{{app_package.id}}"
+           <h2><a href="itms-services://?action=download-manifest&url=http://{{ request.get_host }}{% url 'app:plist_download' app_package.id  %}"
            onclick="todown('itms-services://?action=download-manifest&url=http://{{ request.get_host }}{% url 'app:plist_download' app_package.id  %}')">{{ app.app_name }}</a></h2>
        {% elif app_package.platform.name == 'Android' %}
            <h2><a href="{{ app_package.package.url }}">{{ app.app_name }}</a></h2>
